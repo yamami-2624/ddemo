@@ -3,6 +3,7 @@ package to.msn.wings.demo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.annotation.NonNull;
 import android.os.Bundle;
@@ -58,25 +59,24 @@ public class FriendsListFragment extends Fragment {
 
         Button add_button = view.findViewById(R.id.add_button);
         add_button.setOnClickListener(v -> {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-//            if (fragmentManager != null) {
-            // FragmentTransactionのインスタンスを取得
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            // BackStackを設定 // インスタンスに対して張り付け方を指定する
-            fragmentTransaction.addToBackStack(null);
-            // インスタンスに対して張り付け方を指定する
-            fragmentTransaction.replace(R.id.container,
-                    AddFriendFragment.newInstance(cnt));
+            FragmentManager fragmentManager = getParentFragmentManager();
+            if (fragmentManager != null) {
+                // FragmentTransactionのインスタンスを取得
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                // BackStackを設定 // インスタンスに対して張り付け方を指定する
+                fragmentTransaction.addToBackStack(null);
+                // インスタンスに対して張り付け方を指定する
+                fragmentTransaction.replace(R.id.container, AddFriendFragment.newInstance(cnt));
 
 //           貼り付けを実行
-            fragmentTransaction.commit();
-
+                fragmentTransaction.commit();
+            }
         });
 
         // BackStackで１つ戻す
         Button pop01 = view.findViewById(R.id.pop_01);
         pop01.setOnClickListener(v -> {
-            FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getParentFragmentManager();
             if (fragmentManager != null) {
                 fragmentManager.popBackStack();
             }

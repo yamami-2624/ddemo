@@ -18,16 +18,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/add_button"
-        android:layout_width="178dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="216dp"
-        android:layout_marginBottom="664dp"
-        android:text="@string/add_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/pop_01"
         android:layout_width="178dp"
         android:layout_height="wrap_content"
@@ -36,4 +26,16 @@
         android:text="@string/pop01"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="204dp"
+        android:layout_marginBottom="528dp"
+        android:text="@string/add_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

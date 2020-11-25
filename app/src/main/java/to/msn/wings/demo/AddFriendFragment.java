@@ -55,7 +55,7 @@ public class AddFriendFragment extends Fragment {
 
         Button return_button = view.findViewById(R.id.return_button);
         return_button.setOnClickListener( v -> {
-            FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getParentFragmentManager();
             if(fragmentManager != null) {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -70,7 +70,7 @@ public class AddFriendFragment extends Fragment {
         // BackStackで１つ戻す
         Button pop02 = view.findViewById(R.id.pop_02);
         pop02.setOnClickListener( v -> {
-            FragmentManager fragmentManager = getFragmentManager();
+            FragmentManager fragmentManager = getParentFragmentManager();
             if(fragmentManager != null) {
                 fragmentManager.popBackStack();
             }
