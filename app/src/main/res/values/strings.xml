@@ -4,7 +4,10 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="add_button">add_button</string>
-    <string name="pop01">Pop 01</string>
     <string name="return_button">return_button</string>
-    <string name="pop02">Pop 02</string>
+    <string name="toType_btn">toType_btn</string>
+    <string name="reType_btn">reType_btn</string>
+    <string name="toCheck_btn">toCheck_btn</string>
+    <string name="reCheck_btn">toCheck_btn</string>
+    <string name="reSelect_btn">reSelect_btn</string>
 </resources>

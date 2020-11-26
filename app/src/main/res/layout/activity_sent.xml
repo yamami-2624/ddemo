@@ -7,13 +7,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="mypage"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="213dp" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="to.msn.wings.demo.SelectFragment"
+        android:layout_width="407dp"
+        android:layout_height="543dp"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="89dp" />
 
     <Button
         android:id="@+id/friendsbtn"
