@@ -18,6 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SentActivity"></activity>
+        <activity android:name=".MypageActivity"></activity>
+        <activity android:name=".ReceiveActivity"></activity>
     </application>
-
 </manifest>
