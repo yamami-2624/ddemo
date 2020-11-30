@@ -78,3 +78,6 @@ public class AddFriendFragment extends Fragment {
 //        });
     }
 }
+
+
+//変更
