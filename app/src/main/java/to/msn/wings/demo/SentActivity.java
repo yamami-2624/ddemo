@@ -1,24 +1,18 @@
 package to.msn.wings.demo;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.content.Intent;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
-public class MainActivity extends AppCompatActivity {
+public class SentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sent);
 
 //        BottomNavigationView navView = findViewById(R.id.nav_view);
 //        // Passing each menu ID as a set of Ids because each
@@ -39,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
             // counterをパラメータとして設定
             int count = 0;
-            fragmentTransaction.replace(R.id.container, FriendsListFragment.newInstance(count));
+            fragmentTransaction.replace(R.id.container, TypeFragment.newInstance(count));
 
             fragmentTransaction.commit();
         }
     }
 
-    public void sent_onClick(View v) {
+    public void friendsbtn_onClick(View v) {
 //      明示インテントを作成するにはこれが必要
 //      新しいインテンツを作ってそこにSubActivitを呼び出す
-        Intent i = new Intent(this, to.msn.wings.demo.SentActivity.class);
+        Intent i = new Intent(this, to.msn.wings.demo.MainActivity.class);
         startActivity(i);
     }
 
@@ -65,5 +59,4 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, to.msn.wings.demo.MypageActivity.class);
         startActivity(i);
     }
-
 }
