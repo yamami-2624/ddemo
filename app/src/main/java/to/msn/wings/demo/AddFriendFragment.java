@@ -31,11 +31,11 @@ public class AddFriendFragment extends Fragment {
     // FragmentのViewを生成して返す
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container,
+                             ViewGroup container2,
                              Bundle savedInstanceState) {
 
         return inflater.inflate(R.layout.fragment_addfriend,
-                container, false);
+                container2, false);
     }
 
     @Override
@@ -62,7 +62,7 @@ public class AddFriendFragment extends Fragment {
 
                 // BackStackを設定
                 fragmentTransaction.addToBackStack(null);
-
+//              バックスタックを押した時に出てくるページのコンテイナーとフラグメントを指定
                 fragmentTransaction.replace(R.id.container, FriendsListFragment.newInstance(cnt));
                 fragmentTransaction.commit();
             }

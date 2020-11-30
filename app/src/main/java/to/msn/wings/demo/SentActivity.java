@@ -33,7 +33,7 @@ public class SentActivity extends AppCompatActivity {
 
             // counterをパラメータとして設定
             int count = 0;
-            fragmentTransaction.replace(R.id.container, FriendsListFragment.newInstance(count));
+            fragmentTransaction.replace(R.id.container, TypeFragment.newInstance(count));
 
             fragmentTransaction.commit();
         }
