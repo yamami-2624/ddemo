@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 
 public class TypeFragment extends Fragment{
+    private int cnt = 0;
     static TypeFragment newInstance(int count){
         // Fragemnt02 インスタンス生成
         TypeFragment TypeFragment = new TypeFragment();
@@ -39,7 +40,7 @@ public class TypeFragment extends Fragment{
 
         Bundle args = getArguments();
 
-//
+
 //        if (args != null) {
 //            int count = args.getInt("Counter");
 //            String str = "Fragment02: " + String.valueOf(count);

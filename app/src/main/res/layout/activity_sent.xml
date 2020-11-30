@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/fragment2"
-        android:name="to.msn.wings.demo.SelectFragment"
+        android:name="to.msn.wings.demo.WhoFragment"
         android:layout_width="407dp"
         android:layout_height="543dp"
         tools:layout_editor_absoluteX="3dp"
