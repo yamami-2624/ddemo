@@ -10,7 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.content.res.AssetManager;
+import android.content.res.AssetManager.AssetInputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import android.widget.TextView;
+
 
 import java.util.Objects;
 
@@ -37,8 +47,34 @@ public class FriendsListFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
 
+//        AssetManager assetManager = getResources().getAssets(); //アセット呼び出し
+//        AssetInputStream assetInputStream = assetManager.open("Sample.json"); //Jsonファイル
+//        BufferedReade bufferedReader = BufferedReader(InputStreamReader(inputStream));
+//        str: String = bufferedReader.readText(); //データ
+
+//      読み込んだデータを入れる器を作る
+        StringBuilder str = new StringBuilder();
+//        文字入力ストリームクラス
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(
+                openFileInput("Sample.json")))){
+//            行単位で読み込んで、その内容をStringBufferに保存
+            String line;
+//          readLineはテキストファイルの現在の読み取り位置を表すBufferedReader内部の目印になる。
+            while ((line = reader.readLine()) != null) {
+                str.append(line);
+                str.append(System.getProperty("line.separator"));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        テキストメモを取得
+        txtMemo = findViewById(R.id.txtMemo);
+        txtMemo.setText(str.toString());
+
+
         return inflater.inflate(R.layout.fragment_friendlist,
                 container, false);
+
     }
 
     @Override

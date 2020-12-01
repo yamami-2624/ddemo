@@ -11,11 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 public class AddFriendFragment extends Fragment {
     private int cnt = 0;
-//
+    EditText addfriend;
+
     static AddFriendFragment newInstance(int count){
         // Fragemnt02 インスタンス生成
         AddFriendFragment AddFriendFragment = new AddFriendFragment();
@@ -42,18 +49,6 @@ public class AddFriendFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Bundle args = getArguments();
-
-//
-        if(args != null ){
-            int count = args.getInt("Counter");
-            String str = "Fragment02: " + String.valueOf(count);
-            cnt = count +1;
-
-            TextView textView = view.findViewById(R.id.add_textView);
-            textView.setText(str);
-        }
-
         Button return_button = view.findViewById(R.id.return_button);
         return_button.setOnClickListener( v -> {
             FragmentManager fragmentManager = getParentFragmentManager();
@@ -67,7 +62,6 @@ public class AddFriendFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
-
 //        // BackStackで１つ戻す
 //        Button pop02 = view.findViewById(R.id.pop_02);
 //        pop02.setOnClickListener( v -> {
@@ -76,6 +70,48 @@ public class AddFriendFragment extends Fragment {
 //                fragmentManager.popBackStack();
 //            }
 //        });
+    }
+
+
+//  読み込んだ記述をs寿徳するための器
+    @Override
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Bundle args = getArguments();
+
+        //        EditTextに書き込む記述
+        StringBuilder str = new StringBuilder();
+//        文字入力ストリームクラス
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(
+                openFileInput("memo.dat")))){
+//            行単位で読み込んで、その内容をStringBufferに保存
+            String line;
+//          readLineはテキストファイルの現在の読み取り位置を表すBufferedReader内部の目印になる。
+            while ((line = reader.readLine()) != null) {
+                str.append(line);
+                str.append(System.getProperty("line.separator"));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        テキストメモを取得
+        addfriend = findViewById(R.id.addfriend);
+        addfriend.setText(str.toString());
+    }
+
+
+//      保存ボタンをクリックされた時に呼び出されるコード
+    public void btnSave_onClick(View view) {
+    //        memo.datへの書き込みを準備
+    //        BufferedWriterは文字入力ストリームクラス
+            try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+    //                openFileOutputで専用フォルダーにアクセス
+            openFileOutput("memo.dat", Context.MODE_PRIVATE)))){
+            writer.write(txtMemo.getText().toString());
+            } catch (IOException e) {
+            e.printStackTrace();
+            }
     }
 }
 

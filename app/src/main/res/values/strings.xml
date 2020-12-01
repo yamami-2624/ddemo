@@ -11,4 +11,5 @@
     <string name="reCheck_btn">reCheck_btn</string>
     <string name="reSelect_btn">reSelect_btn</string>
     <string name="Send_btn">Send_btn</string>
+    <string name="btnSave">btnSave</string>
 </resources>
