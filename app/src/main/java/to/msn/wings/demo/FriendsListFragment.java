@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.content.res.AssetManager;
-import android.content.res.AssetManager.AssetInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -47,31 +45,7 @@ public class FriendsListFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
 
-//        AssetManager assetManager = getResources().getAssets(); //アセット呼び出し
-//        AssetInputStream assetInputStream = assetManager.open("Sample.json"); //Jsonファイル
-//        BufferedReade bufferedReader = BufferedReader(InputStreamReader(inputStream));
-//        str: String = bufferedReader.readText(); //データ
-
-//      読み込んだデータを入れる器を作る
-        StringBuilder str = new StringBuilder();
-//        文字入力ストリームクラス
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(
-                openFileInput("Sample.json")))){
-//            行単位で読み込んで、その内容をStringBufferに保存
-            String line;
-//          readLineはテキストファイルの現在の読み取り位置を表すBufferedReader内部の目印になる。
-            while ((line = reader.readLine()) != null) {
-                str.append(line);
-                str.append(System.getProperty("line.separator"));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-//        テキストメモを取得
-        txtMemo = findViewById(R.id.txtMemo);
-        txtMemo.setText(str.toString());
-
-
+//      読み込んだデータを入れる器を作
         return inflater.inflate(R.layout.fragment_friendlist,
                 container, false);
 
@@ -82,15 +56,6 @@ public class FriendsListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Bundle args = getArguments();
-
-//        if (args != null) {
-//            int count = args.getInt("Counter");
-//            String str = "Fragment01: " + String.valueOf(count);
-//            cnt = count + 1;
-//
-//            TextView textView = view.findViewById(R.id.textView4);
-//            textView.setText(str);
-//        }
 
         Button add_button = view.findViewById(R.id.add_button);
         add_button.setOnClickListener(v -> {
@@ -108,20 +73,5 @@ public class FriendsListFragment extends Fragment {
             }
         });
     }
-
-
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//    }
-
-
-//    @Override
-//    public View onCreateView(LayoutInflater inflater,
-//                             ViewGroup container, Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.fragment_friendlist, container, false);
-//        Bundle bundle;
-//        return view;
-//    }
 }
 

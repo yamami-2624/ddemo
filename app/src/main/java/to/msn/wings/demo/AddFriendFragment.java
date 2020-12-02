@@ -71,48 +71,6 @@ public class AddFriendFragment extends Fragment {
 //            }
 //        });
     }
-
-
-//  読み込んだ記述をs寿徳するための器
-    @Override
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        Bundle args = getArguments();
-
-        //        EditTextに書き込む記述
-        StringBuilder str = new StringBuilder();
-//        文字入力ストリームクラス
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(
-                openFileInput("memo.dat")))){
-//            行単位で読み込んで、その内容をStringBufferに保存
-            String line;
-//          readLineはテキストファイルの現在の読み取り位置を表すBufferedReader内部の目印になる。
-            while ((line = reader.readLine()) != null) {
-                str.append(line);
-                str.append(System.getProperty("line.separator"));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-//        テキストメモを取得
-        addfriend = findViewById(R.id.addfriend);
-        addfriend.setText(str.toString());
-    }
-
-
-//      保存ボタンをクリックされた時に呼び出されるコード
-    public void btnSave_onClick(View view) {
-    //        memo.datへの書き込みを準備
-    //        BufferedWriterは文字入力ストリームクラス
-            try(BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-    //                openFileOutputで専用フォルダーにアクセス
-            openFileOutput("memo.dat", Context.MODE_PRIVATE)))){
-            writer.write(txtMemo.getText().toString());
-            } catch (IOException e) {
-            e.printStackTrace();
-            }
-    }
 }
 
 
