@@ -2,6 +2,9 @@ package to.msn.wings.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -13,11 +16,10 @@ import androidx.annotation.NonNull;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
-import android.view.View.OnTouchListener;
+import android.view.inputmethod.InputMethodManager;
+import android.view.MotionEvent;
+
 
 public class AddFriendFragment extends Fragment {
     private int cnt = 0;
@@ -25,6 +27,9 @@ public class AddFriendFragment extends Fragment {
     private FriendDatabaseHelper helper = null;
     private EditText txtName = null;
     private TextView view;
+    private InputMethodManager inputMethodManager;
+
+
 
     static AddFriendFragment newInstance(int count){
         // Fragemnt02 インスタンス生成
@@ -38,23 +43,51 @@ public class AddFriendFragment extends Fragment {
         return AddFriendFragment;
     }
 
+////   タッチした時にキーボードを消す作業
+//    @Override
+//    public void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.fragment_addfriend);
+////
+//        View = findViewById(R.id.txtName);
+//
+//        EditText edittext = findViewById(R.id.txtName);
+//        edittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if(!hasFocus) {
+//                    //キーボード非表示
+//                    InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+//                    if (imm != null) {
+//                        imm.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+//                    }
+//                }
+//            }
+//        });
+//    }
+
     // FragmentのViewを生成して返す
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
 
         helper = new FriendDatabaseHelper(getActivity());
 
-        return inflater.inflate(R.layout.fragment_addfriend,
-                container2, false);
-//
-//        view.setOnTouchListener(new View.OnTouchListener() {
+
+//        View view = container2.findViewById(R.id.view);
+//        view.setOnTouchListener(new View.OnTouchListener(){
 //            public boolean onTouch(View v, MotionEvent event) {
 //                if(event.getAction() == MotionEvent.ACTION_MOVE){
 //                }
 //                return true;
 //            }
 //        });
+
+        return inflater.inflate(R.layout.fragment_addfriend,
+                container2, false);
     }
+
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -74,6 +107,10 @@ public class AddFriendFragment extends Fragment {
             }
         });
 
+//        ヘルパーを準備
+        helper = new FriendDatabaseHelper(getActivity());
+        txtName = view.findViewById(R.id.txtName);
+
         Button btnSave = view.findViewById(R.id.btnSave);
         btnSave.setOnClickListener( v -> {
             try (SQLiteDatabase db = helper.getWritableDatabase()) {
@@ -81,7 +118,7 @@ public class AddFriendFragment extends Fragment {
                 cv.put("name", txtName.getText().toString());
                 db.insert("friend", null, cv);
 //          重複した時の処理
-                db.insertWithOnConflict("books", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
+                db.insertWithOnConflict("friend", null, cv, SQLiteDatabase.CONFLICT_REPLACE);
                 Toast.makeText(getActivity(), "データの登録に成功しました。", Toast.LENGTH_SHORT).show();
             }
         });
