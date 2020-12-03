@@ -10,7 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 import android.widget.TextView;
+
 
 import java.util.Objects;
 
@@ -37,8 +45,10 @@ public class FriendsListFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
 
+//      読み込んだデータを入れる器を作
         return inflater.inflate(R.layout.fragment_friendlist,
                 container, false);
+
     }
 
     @Override
@@ -46,15 +56,6 @@ public class FriendsListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Bundle args = getArguments();
-
-//        if (args != null) {
-//            int count = args.getInt("Counter");
-//            String str = "Fragment01: " + String.valueOf(count);
-//            cnt = count + 1;
-//
-//            TextView textView = view.findViewById(R.id.textView4);
-//            textView.setText(str);
-//        }
 
         Button add_button = view.findViewById(R.id.add_button);
         add_button.setOnClickListener(v -> {
@@ -72,20 +73,5 @@ public class FriendsListFragment extends Fragment {
             }
         });
     }
-
-
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//    }
-
-
-//    @Override
-//    public View onCreateView(LayoutInflater inflater,
-//                             ViewGroup container, Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.fragment_friendlist, container, false);
-//        Bundle bundle;
-//        return view;
-//    }
 }
 
