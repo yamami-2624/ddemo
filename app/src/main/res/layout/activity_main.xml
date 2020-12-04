@@ -11,10 +11,13 @@
     <fragment
         android:id="@+id/container"
         android:name="to.msn.wings.demo.FriendsListFragment"
-        android:layout_width="411dp"
-        android:layout_height="584dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="2dp" />
+        android:layout_width="400dp"
+        android:layout_height="494dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.085" />
 
     <Button
         android:id="@+id/friendsbtn"
