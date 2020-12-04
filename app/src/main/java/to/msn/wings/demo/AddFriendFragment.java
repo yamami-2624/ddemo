@@ -30,8 +30,7 @@ public class AddFriendFragment extends Fragment {
     private InputMethodManager inputMethodManager;
 
 
-
-    static AddFriendFragment newInstance(int count){
+    static AddFriendFragment newInstance(int count) {
         // Fragemnt02 インスタンス生成
         AddFriendFragment AddFriendFragment = new AddFriendFragment();
 
@@ -87,16 +86,14 @@ public class AddFriendFragment extends Fragment {
     }
 
 
-
-
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         Button return_button = view.findViewById(R.id.return_button);
-        return_button.setOnClickListener( v -> {
+        return_button.setOnClickListener(v -> {
             FragmentManager fragmentManager = getParentFragmentManager();
-            if(fragmentManager != null) {
+            if (fragmentManager != null) {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
                 // BackStackを設定
@@ -112,9 +109,9 @@ public class AddFriendFragment extends Fragment {
         txtName = view.findViewById(R.id.txtName);
 
         Button btnSave = view.findViewById(R.id.btnSave);
-        btnSave.setOnClickListener( v -> {
+        btnSave.setOnClickListener(v -> {
             try (SQLiteDatabase db = helper.getWritableDatabase()) {
-                ContentValues cv  = new ContentValues();
+                ContentValues cv = new ContentValues();
                 cv.put("name", txtName.getText().toString());
                 db.insert("friend", null, cv);
 //          重複した時の処理
@@ -123,7 +120,7 @@ public class AddFriendFragment extends Fragment {
             }
         });
     }
-
+}
 //    //  保存ボタンを押した時に呼び出されるメソッド
 //    public void save_onClick(View view) {
 //        try (SQLiteDatabase db = helper.getWritableDatabase()) {
@@ -135,7 +132,7 @@ public class AddFriendFragment extends Fragment {
 //            Toast.makeText(getActivity(), "データの登録に成功しました。", Toast.LENGTH_SHORT).show();
 //        }
 //    }
-}
+
 
 
 //変更

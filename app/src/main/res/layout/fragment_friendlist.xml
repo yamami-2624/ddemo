@@ -27,5 +27,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ListView
+        android:id="@+id/friends_list"
+        android:layout_width="299dp"
+        android:layout_height="411dp"
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="76dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
