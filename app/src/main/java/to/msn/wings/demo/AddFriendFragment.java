@@ -69,9 +69,6 @@ public class AddFriendFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container2, Bundle savedInstanceState) {
 
-        helper = new FriendDatabaseHelper(getActivity());
-
-
 //        View view = container2.findViewById(R.id.view);
 //        view.setOnTouchListener(new View.OnTouchListener(){
 //            public boolean onTouch(View v, MotionEvent event) {
