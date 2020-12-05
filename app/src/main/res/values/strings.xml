@@ -14,4 +14,5 @@
     <string name="btnSave">btnSave</string>
     <string name="tvName">tvName</string>
     <string name="txtName">tvName</string>
+    <string name="friends_list">friends_list</string>
 </resources>
