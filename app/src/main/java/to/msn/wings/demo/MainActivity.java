@@ -45,25 +45,24 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void sent_onClick(View v) {
-//      明示インテントを作成するにはこれが必要
-//      新しいインテンツを作ってそこにSubActivitを呼び出す
+    public void sent_onClick(View v){
+        //      明示インテントを作成するにはこれが必要
+        //      新しいインテンツを作ってそこにSubActivitを呼び出す
         Intent i = new Intent(this, to.msn.wings.demo.SentActivity.class);
         startActivity(i);
     }
 
-    public void recive_onClick(View v) {
-//      明示インテントを作成するにはこれが必要
-//      新しいインテンツを作ってそこにSubActivitを呼び出す
+    public void recive_onClick (View v){
+        //      明示インテントを作成するにはこれが必要
+        //      新しいインテンツを作ってそこにSubActivitを呼び出す
         Intent i = new Intent(this, to.msn.wings.demo.ReceiveActivity.class);
         startActivity(i);
     }
 
-    public void mypage_onClick(View v) {
-//      明示インテントを作成するにはこれが必要
-//      新しいインテンツを作ってそこにSubActivitを呼び出す
+    public void mypage_onClick (View v){
+        //      明示インテントを作成するにはこれが必要
+        //      新しいインテンツを作ってそこにSubActivitを呼び出す
         Intent i = new Intent(this, to.msn.wings.demo.MypageActivity.class);
         startActivity(i);
     }
-
 }
