@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "65369774125",
+    "project_id": "quick-guru-289713",
+    "storage_bucket": "quick-guru-289713.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65369774125:android:2648826b7b2efbed51c0a4",
+        "android_client_info": {
+          "package_name": "to.msn.wings.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65369774125-1cuk6ueadhr58fc68kq0lrh6q17in7dr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ7IvJa_VPnCf2wxUJhtq9VvQOHo2vw5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65369774125-1cuk6ueadhr58fc68kq0lrh6q17in7dr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
