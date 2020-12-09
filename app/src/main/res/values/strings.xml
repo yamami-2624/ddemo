@@ -15,4 +15,5 @@
     <string name="tvName">tvName</string>
     <string name="txtName">tvName</string>
     <string name="friends_list">friends_list</string>
+    <string name="friendsbtn">friendsbtn</string>
 </resources>
